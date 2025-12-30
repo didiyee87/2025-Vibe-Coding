@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="專案詳細資訊 - 楊博翔作品集">
+    <title>專案詳情 | 楊博翔</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-detail {
+            min-height: 100vh;
+            padding: var(--spacing-3xl) var(--spacing-xl);
+            padding-top: 100px;
+        }
+
+        .detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-xl);
+            font-size: var(--font-size-sm);
+            transition: color var(--transition-fast);
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .detail-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .detail-title {
+            font-size: var(--font-size-3xl);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .detail-tags {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+        }
+
+        .readme-content {
+            padding: var(--spacing-2xl);
+        }
+
+        .readme-content h1,
+        .readme-content h2,
+        .readme-content h3 {
+            color: var(--text-primary);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .readme-content h1 {
+            font-size: var(--font-size-2xl);
+        }
+
+        .readme-content h2 {
+            font-size: var(--font-size-xl);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .readme-content h3 {
+            font-size: var(--font-size-lg);
+        }
+
+        .readme-content p,
+        .readme-content li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .readme-content ul,
+        .readme-content ol {
+            padding-left: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .readme-content code {
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+            color: var(--accent-primary);
+        }
+
+        .readme-content pre {
+            background: var(--bg-tertiary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .readme-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+
+        .private-notice {
+            text-align: center;
+            padding: var(--spacing-3xl);
+            color: var(--text-muted);
+        }
+
+        .private-notice .lock-icon {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .external-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: var(--accent-gradient);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-top: var(--spacing-xl);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .external-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <a href="index.html" class="nav-logo">YBS</a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">關於我</a></li>
+            <li><a href="index.html#projects">作品集</a></li>
+            <li><a href="index.html#skills">專長</a></li>
+            <li><a href="index.html#contact">聯絡</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="project-detail">
+        <div class="detail-container">
+            <a href="index.html#projects" class="back-link">← 返回作品集</a>
+
+            <div class="detail-header">
+                <div class="detail-icon" id="projectIcon">🎮</div>
+                <h1 class="detail-title" id="projectTitle">專案名稱</h1>
+                <div class="detail-tags" id="projectTags"></div>
+            </div>
+
+            <div class="glass-card readme-content" id="readmeContent" style="opacity: 1; transform: none;">
+                <p>載入中...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 楊博翔 | 使用 Vibe Coding 與 AI 協作製作</p>
+    </footer>
+
+    <script>
+        // Project data
+        const projects = {
+            '2048': {
+                icon: '🎮',
+                title: '2048 遊戲',
+                tags: ['JavaScript', 'Web Game'],
+                isPrivate: false,
+                repo: 'didiyee87/2048',
+                demo: 'https://didiyee87.github.io/2048/',
+                content: `
+                    <h2>🎮 2048 經典數字益智遊戲</h2>
+                    <p>這是使用 JavaScript 開發的經典 2048 數字益智遊戲，透過 Vibe Coding 方式與 AI 協作完成。</p>
+                    <h3>遊戲規則</h3>
+                    <ul>
+                        <li>使用方向鍵移動所有數字方塊</li>
+                        <li>相同數字的方塊碰撞會合併</li>
+                        <li>目標是合併出 2048</li>
+                    </ul>
+                    <h3>技術特色</h3>
+                    <ul>
+                        <li>純 JavaScript 實現遊戲邏輯</li>
+                        <li>CSS 動畫效果</li>
+                        <li>響應式設計，支援手機操作</li>
+                    </ul>
+                    <a href="https://didiyee87.github.io/2048/" target="_blank" class="external-link">🎮 開始遊玩</a>
+                `
+            },
+            'gif': {
+                icon: '🗜️',
+                title: 'Discord GIF 壓縮器',
+                tags: ['Python', '工具'],
+                isPrivate: false,
+                repo: 'didiyee87/DC_gif_compressor',
+                content: `
+                    <h2>🎞️ 智能 GIF 壓縮工具</h2>
+                    <p>一個使用 gifsicle 進行高品質 GIF 壓縮的 Python 工具，能夠自動將 GIF 檔案壓縮至指定大小。</p>
+                    
+                    <h3>✨ 功能特色</h3>
+                    <ul>
+                        <li><strong>智能二分搜尋</strong> - 自動找到最佳壓縮比例</li>
+                        <li><strong>批次處理</strong> - 一次處理目錄中所有 GIF 檔案</li>
+                        <li><strong>多重壓縮方法</strong> - 支援像素尺寸縮放與參數縮放兩種方式</li>
+                        <li><strong>自動驗證</strong> - 壓縮前驗證 GIF 檔案完整性</li>
+                    </ul>
+                    
+                    <h3>📋 系統需求</h3>
+                    <ul>
+                        <li>Python 3.6+</li>
+                        <li>gifsicle - 需先安裝並加入系統 PATH</li>
+                        <li>Pillow (PIL) - Python 影像處理套件</li>
+                    </ul>
+                    
+                    <h3>📖 使用方法</h3>
+                    <pre><code>python gif_compressor.py [目標大小KB] [輸入目錄]</code></pre>
+                    <p>預設會將所有 GIF 壓縮至 256 KB 以下。</p>
+                    
+                    <a href="https://github.com/didiyee87/DC_gif_compressor" target="_blank" class="external-link">💻 查看原始碼</a>
+                `
+            },
+            'colorblind': {
+                icon: '👁️',
+                title: '色盲模擬器',
+                tags: ['HTML', '教育'],
+                isPrivate: false,
+                demo: 'https://colorwk14.my.canva.site/',
+                content: `
+                    <h2>👁️ 互動式色盲模擬器</h2>
+                    <p>這是一個教育性質的互動網站，幫助人們了解不同類型色盲者眼中的世界。</p>
+                    
+                    <h3>功能介紹</h3>
+                    <ul>
+                        <li>模擬多種色盲類型（紅色盲、綠色盲、藍色盲）</li>
+                        <li>互動式體驗，可上傳圖片進行模擬</li>
+                        <li>教育性內容，介紹色盲相關知識</li>
+                    </ul>
+                    
+                    <h3>設計理念</h3>
+                    <p>希望透過視覺化的方式，讓一般人能夠體驗色盲者的視覺世界，增進對色盲族群的理解與包容。</p>
+                    
+                    <a href="https://colorwk14.my.canva.site/" target="_blank" class="external-link">🌐 開啟網站</a>
+                `
+            },
+            'tronclass': {
+                icon: '🤖',
+                title: 'TronClass 點名機器人',
+                tags: ['Python', 'Discord Bot', 'AWS'],
+                isPrivate: true,
+                content: `
+                    <h2>🤖 TronClass 點名機器人</h2>
+                    <p>自動偵測課堂點名 QR Code 並透過 Discord 發送通知的機器人。</p>
+                    
+                    <h3>功能特色</h3>
+                    <ul>
+                        <li>自動登入 TronClass 系統</li>
+                        <li>即時偵測課堂點名 QR Code</li>
+                        <li>透過 Discord Bot 發送通知</li>
+                        <li>部署於 AWS 雲端，24/7 運行</li>
+                    </ul>
+                    
+                    <h3>技術架構</h3>
+                    <ul>
+                        <li>Python + Selenium 網頁自動化</li>
+                        <li>Discord.py Bot 框架</li>
+                        <li>AWS EC2 雲端部署</li>
+                    </ul>
+                `
+            },
+            'mercari': {
+                icon: '🛒',
+                title: 'Mercari 商品監控',
+                tags: ['Python', '爬蟲', '自動化'],
+                isPrivate: true,
+                content: `
+                    <h2>🛒 Mercari 商品上架監控</h2>
+                    <p>煤爐二手平台商品上架監控工具，自動追蹤指定關鍵字新品並即時通知。</p>
+                    
+                    <h3>功能特色</h3>
+                    <ul>
+                        <li>支援多關鍵字同時監控</li>
+                        <li>可設定價格區間篩選</li>
+                        <li>新品上架即時通知</li>
+                        <li>支援 Discord / Telegram 通知</li>
+                    </ul>
+                    
+                    <h3>應用場景</h3>
+                    <p>適合想要在日本二手平台搶購限定商品或收藏品的用戶。</p>
+                `
+            },
+            'kmonstar': {
+                icon: '🎤',
+                title: 'K-MONSTAR 簽售監控',
+                tags: ['Python', '監控'],
+                isPrivate: true,
+                content: `
+                    <h2>🎤 K-MONSTAR 簽售監控</h2>
+                    <p>韓國偶像簽售活動庫存監控工具，追蹤簽售名額並即時通知。</p>
+                    
+                    <h3>功能特色</h3>
+                    <ul>
+                        <li>自動監控 K-MONSTAR 簽售頁面</li>
+                        <li>偵測簽售名額開放</li>
+                        <li>即時發送通知提醒</li>
+                        <li>支援多場次同時監控</li>
+                    </ul>
+                    
+                    <h3>應用場景</h3>
+                    <p>適合想要參加韓國偶像簽售活動的粉絲，不錯過任何搶票機會。</p>
+                `
+            },
+            'equallove': {
+                icon: '💌',
+                title: 'Equal Love Link Downloader',
+                tags: ['Python', '爬蟲'],
+                isPrivate: true,
+                content: `
+                    <h2>💌 Equal Love Link Downloader</h2>
+                    <p>日本偶像應援 App 訊息與圖片下載工具。</p>
+                    
+                    <h3>功能特色</h3>
+                    <ul>
+                        <li>下載 =LOVE LINK App 內的訊息</li>
+                        <li>保存成員發佈的圖片</li>
+                        <li>支援批量下載歷史訊息</li>
+                        <li>保留原始時間戳記</li>
+                    </ul>
+                    
+                    <h3>技術實現</h3>
+                    <ul>
+                        <li>Python 實現</li>
+                        <li>API 逆向工程</li>
+                        <li>自動化登入與資料擷取</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Get project ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        // Load project data
+        if (projectId && projects[projectId]) {
+            const project = projects[projectId];
+            document.getElementById('projectIcon').textContent = project.icon;
+            document.getElementById('projectTitle').textContent = project.title;
+            document.title = project.title + ' | 楊博翔';
+
+            // Add tags
+            const tagsContainer = document.getElementById('projectTags');
+            project.tags.forEach(tag => {
+                const tagEl = document.createElement('span');
+                tagEl.className = 'project-tag';
+                tagEl.textContent = tag;
+                tagsContainer.appendChild(tagEl);
+            });
+
+            // Add private badge if needed
+            if (project.isPrivate) {
+                const privateBadge = document.createElement('span');
+                privateBadge.className = 'project-tag';
+                privateBadge.style.borderColor = '#f59e0b';
+                privateBadge.style.color = '#f59e0b';
+                privateBadge.textContent = '🔒 Private';
+                tagsContainer.appendChild(privateBadge);
+            }
+
+            // Set content
+            document.getElementById('readmeContent').innerHTML = project.content;
+        } else {
+            document.getElementById('readmeContent').innerHTML = '<p style="text-align: center;">專案不存在</p>';
+        }
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

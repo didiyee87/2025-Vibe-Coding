@@ -446,6 +446,33 @@ ul {
     flex-direction: column;
     cursor: pointer;
     transition: all var(--transition-base);
+    position: relative;
+}
+
+.project-detail-btn {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-size: 14px;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    z-index: 10;
+}
+
+.project-detail-btn:hover {
+    background: var(--accent-primary);
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
+    transform: scale(1.1);
 }
 
 .project-card:hover {
