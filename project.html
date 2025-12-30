@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="專案詳細資訊 - 楊博翔作品集">
-    <title>專案詳情 | 楊博翔</title>
+    <meta name="description" content="專案詳細資訊 - YB作品集">
+    <title>專案詳情 | YB</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -278,25 +278,25 @@
             'tronclass': {
                 icon: '🤖',
                 title: 'TronClass 點名機器人',
-                tags: ['Python', 'Discord Bot', 'AWS'],
+                tags: ['Python', 'Discord Bot', 'DigitalOcean'],
                 isPrivate: true,
                 content: `
                     <h2>🤖 TronClass 點名機器人</h2>
-                    <p>自動偵測課堂點名 QR Code 並透過 Discord 發送通知的機器人。</p>
+                    <p>自動偵測課堂數字點名並透過 Discord 發送通知的機器人。</p>
                     
                     <h3>功能特色</h3>
                     <ul>
                         <li>自動登入 TronClass 系統</li>
-                        <li>即時偵測課堂點名 QR Code</li>
+                        <li>即時偵測課堂數字點名</li>
                         <li>透過 Discord Bot 發送通知</li>
-                        <li>部署於 AWS 雲端，24/7 運行</li>
+                        <li>部署於 DigitalOcean 雲端，24/7 運行</li>
                     </ul>
                     
                     <h3>技術架構</h3>
                     <ul>
                         <li>Python + Selenium 網頁自動化</li>
                         <li>Discord.py Bot 框架</li>
-                        <li>AWS EC2 雲端部署</li>
+                        <li>DigitalOcean Droplet 雲端部署</li>
                     </ul>
                 `
             },
@@ -378,7 +378,7 @@
             const project = projects[projectId];
             document.getElementById('projectIcon').textContent = project.icon;
             document.getElementById('projectTitle').textContent = project.title;
-            document.title = project.title + ' | 楊博翔';
+            document.title = project.title + ' | YB';
 
             // Add tags
             const tagsContainer = document.getElementById('projectTags');
