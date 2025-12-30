@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YB - 作品集">
+    <title>作品集 | YB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .projects-page {
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <a href="index.html" class="nav-logo">YB</a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">關於我</a></li>
+            <li><a href="projects.html" class="active">作品集</a></li>
+            <li><a href="index.html#skills">專長</a></li>
+            <li><a href="index.html#experience">經歷</a></li>
+            <li><a href="index.html#goals">目標</a></li>
+            <li><a href="index.html#contact">聯絡</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section class="section projects-page" id="projects">
+        <div class="container">
+            <h2 class="section-title" style="opacity: 1; transform: none;">
+                <span class="title-icon">🚀</span>
+                作品集
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card glass-card" style="opacity: 1; transform: none;">
+                    <a href="project.html?id=2048" class="project-detail-btn" title="查看詳情">📄</a>
+                    <a href="https://didiyee87.github.io/2048/" target="_blank"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="project-icon">🎮</div>
+                        <h3 class="project-title">2048 遊戲</h3>
+                        <p class="project-desc">經典 2048 數字益智遊戲，滑動方塊合併出 2048！</p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Web Game</span>
+                        </div>
+                        <span class="project-link">查看 Demo →</span>
+                    </a>
+                </div>
+                <div class="project-card glass-card" style="opacity: 1; transform: none;">
+                    <a href="project.html?id=gif" class="project-detail-btn" title="查看詳情">📄</a>
+                    <a href="https://github.com/didiyee87/DC_gif_compressor" target="_blank"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="project-icon">🗜️</div>
+                        <h3 class="project-title">Discord GIF 壓縮器</h3>
+                        <p class="project-desc">快速壓縮 GIF 圖片，方便在 Discord 上分享動圖。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">工具</span>
+                        </div>
+                        <span class="project-link">查看專案 →</span>
+                    </a>
+                </div>
+                <div class="project-card glass-card" style="opacity: 1; transform: none;">
+                    <a href="project.html?id=colorblind" class="project-detail-btn" title="查看詳情">📄</a>
+                    <a href="https://colorwk14.my.canva.site/" target="_blank"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="project-icon">👁️</div>
+                        <h3 class="project-title">色盲模擬器</h3>
+                        <p class="project-desc">互動式色盲模擬器，幫助了解不同類型色盲者的視覺世界。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">教育</span>
+                        </div>
+                        <span class="project-link">查看 Demo →</span>
+                    </a>
+                </div>
+                <div class="project-card glass-card" style="opacity: 1; transform: none;">
+                    <a href="project.html?id=tronclass" class="project-detail-btn" title="查看詳情">📄</a>
+                    <div class="project-icon">🤖</div>
+                    <h3 class="project-title">TronClass 點名機器人</h3>
+                    <p class="project-desc">自動偵測課堂數字點名並透過 Discord 發送通知，部署於 DigitalOcean 雲端。</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Discord Bot</span>
+                        <span class="project-tag">DigitalOcean</span>
+                    </div>
+                    <span class="project-link">🔒 Private</span>
+                </div>
+                <div class="project-card glass-card" style="opacity: 1; transform: none;">
+                    <a href="project.html?id=mercari" class="project-detail-btn" title="查看詳情">📄</a>
+                    <div class="project-icon">🛒</div>
+                    <h3 class="project-title">Mercari 商品監控</h3>
+                    <p class="project-desc">煤爐二手平台商品上架監控，自動追蹤指定關鍵字新品並即時通知。</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">爬蟲</span>
+                        <span class="project-tag">自動化</span>
+                    </div>
+                    <span class="project-link">🔒 Private</span>
+                </div>
+                <div class="project-card glass-card" style="opacity: 1; transform: none;">
+                    <a href="project.html?id=kmonstar" class="project-detail-btn" title="查看詳情">📄</a>
+                    <div class="project-icon">🎤</div>
+                    <h3 class="project-title">K-MONSTAR 簽售監控</h3>
+                    <p class="project-desc">韓國偶像簽售活動庫存監控，追蹤簽售名額並即時通知。</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">監控</span>
+                    </div>
+                    <span class="project-link">🔒 Private</span>
+                </div>
+                <div class="project-card glass-card" style="opacity: 1; transform: none;">
+                    <a href="project.html?id=equallove" class="project-detail-btn" title="查看詳情">📄</a>
+                    <div class="project-icon">💌</div>
+                    <h3 class="project-title">Equal Love Link Downloader</h3>
+                    <p class="project-desc">日本偶像應援 App 訊息與圖片下載工具。</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">爬蟲</span>
+                    </div>
+                    <span class="project-link">🔒 Private</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 楊博翔 | 使用 Vibe Coding 與 AI 協作製作</p>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
