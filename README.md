@@ -11,7 +11,7 @@
 
 ---
 
-## 🤖 2. Gemini 協作紀錄 (Prompt Log)
+## 🤖 2. Claude 協作紀錄 (Prompt Log)
 
 ### 關鍵提示詞
 
@@ -47,4 +47,4 @@
 
 ---
 
-**🔗 網頁預覽網址：** https://didiyee87.github.io/2025-Vibe-Coding-楊博翔/
+**🔗 網頁預覽網址：** https://didiyee87.github.io/2025-Vibe-Coding/
